@@ -1,0 +1,25 @@
+---
+galaxy_info:
+  author: Kevin Wennemuth
+  description: Ansible role to manage zsh and oh-my-zsh installations.
+  license: MIT
+  min_ansible_version: 2.3
+  platforms:
+    - name: Darwin
+      versions:
+        - all
+  galaxy_tags:
+    - system
+    - osx
+    - shell
+    - zsh
+    - oh-my-zsh
+dependencies:
+  - { role: feffi.macos-homebrew,
+      macos_homebrew: {
+        packages: [
+          { name: "zsh" }
+        ],
+        taps: []
+      }
+    }

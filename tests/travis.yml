@@ -1,0 +1,27 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  vars:
+    DEBUG: true
+    macos_ohmyzsh:
+      # Set zsh as default shell
+      default: true
+      # Configure oh-my-zsh after install?
+      configure: true
+      config:
+        theme: "agnoster"
+        case_sensitive: false
+        hyphen_insensitive: false
+        disable_update_prompt: false
+        disable_auto_update: false
+        update_days: 13
+        disable_ls_colors: false
+        disable_auto_title: false
+        disable_correction: false
+        completion_waiting_dots: true
+        disable_untracked_files_dirty: false
+        custom: "$ZSH/custom"
+        plugins: "git"
+
+  roles:
+    - { role: ansible-macos-ohmyzsh }

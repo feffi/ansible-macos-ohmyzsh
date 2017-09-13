@@ -1,0 +1,92 @@
+# {{ ansible_managed }}
+
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.oh-my-zsh
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="{{ macos_ohmyzsh.config.theme|default("agnoster") }}"
+
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Set to this to use case-sensitive completion
+CASE_SENSITIVE="{{ macos_ohmyzsh.config.case_sensitive|default("false")|to_nice_json }}"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+HYPHEN_INSENSITIVE="{{ macos_ohmyzsh.config.hyphen_insensitive|default("false")|to_nice_json }}"
+
+# Uncomment this to disable update prompt
+DISABLE_UPDATE_PROMPT="{{ macos_ohmyzsh.config.disable_update_prompt|default("false")|to_nice_json  }}"
+
+# Uncomment this to disable bi-weekly auto-update checks
+DISABLE_AUTO_UPDATE="{{ macos_ohmyzsh.config.disable_auto_update|default("false")|to_nice_json  }}"
+
+# Uncomment to change how often before auto-updates occur? (in days)
+export UPDATE_ZSH_DAYS={{ macos_ohmyzsh.config.update_days|default("13") }}
+
+# Uncomment following line if you want to disable colors in ls
+DISABLE_LS_COLORS="{{ macos_ohmyzsh.config.disable_ls_colors|default("false")|to_nice_json  }}"
+
+# Uncomment following line if you want to disable autosetting terminal title.
+DISABLE_AUTO_TITLE="{{ macos_ohmyzsh.config.disable_auto_title|default("false")|to_nice_json  }}"
+
+# Uncomment following line if you want to disable command autocorrection
+DISABLE_CORRECTION="{{ macos_ohmyzsh.config.disable_correction|default("false")|to_nice_json  }}"
+
+# Uncomment following line if you want red dots to be displayed while waiting for completion
+COMPLETION_WAITING_DOTS="{{ macos_ohmyzsh.config.completion_waiting_dots|default("true")|to_nice_json  }}"
+
+# Uncomment following line if you want to disable marking untracked files under
+# VCS as dirty. This makes repository status check for large repositories much,
+# much faster.
+DISABLE_UNTRACKED_FILES_DIRTY="{{ macos_ohmyzsh.config.disable_untracked_files_dirty|default("false")|to_nice_json  }}"
+
+# Uncomment following line if you want to  shown in the command execution time stamp
+# in the history command output. The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|
+# yyyy-mm-dd
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+ZSH_CUSTOM={{ macos_ohmyzsh.config.custom|default("$ZSH/custom") }}
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=({{ macos_ohmyzsh.config.plugins|default("git") }})
+
+# User configuration
+
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export MANPATH="/usr/local/man:$MANPATH"
+
+source $ZSH/oh-my-zsh.sh
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
