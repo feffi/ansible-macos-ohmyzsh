@@ -21,6 +21,8 @@ dependencies:
         packages: [
           { name: "zsh" }
         ],
-        taps: []
+        taps: [],
+        casks: [],
+        brews: []
       }
     }
