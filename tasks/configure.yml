@@ -9,8 +9,10 @@
 
 - name: Setting default shell
   become: true
-  shell: "chsh -s $(which zsh) {{ ansible_ssh_user }}"
+  shell: "chsh -s $(which zsh) {{ ansible_user_id }}"
   when: macos_ohmyzsh.default
+  register: chsh_result
+  changed_when: "'chsh: no changes made' not in chsh_result.stderr"
 
 - name: Configuring oh-my-zsh
   template:
